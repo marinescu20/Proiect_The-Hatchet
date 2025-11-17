@@ -2,7 +2,7 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
-  <title>The Hatchet - Acasă</title>
+  <title>Admin - The Hatchet</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -39,7 +39,7 @@
   <nav>
     <button id="nav-toggle">☰</button>
     <ul>
-      <li><a href="index.html" class="active">Acasă</a></li>
+      <li><a href="index.html">Acasă</a></li>
       <li><a href="about.html">Despre</a></li>
       <li><a href="gallery.html">Galerie</a></li>
       <li><a href="prices.html">Prețuri</a></li>
@@ -50,34 +50,42 @@
   </nav>
 
   <main>
-    <section class="hero">
-      <h1>Bine ai venit la The Hatchet</h1>
-    </section>
+    <h2>Panou Administrare</h2>
 
-    <h2>Experiențe</h2>
+    <div id="admin-user-list-view">
+      <h3>Utilizatori Înregistrați</h3>
+      <div id="admin-user-list-container" class="admin-user-list">
+        </div>
+    </div>
 
-    <div class="cards">
-      <div class="card">
-        <img src="images/lane1.avif">
-        <h3>Lane Standard</h3>
-      </div>
-
-      <div class="card">
-        <img src="images/lane2.jpg">
-        <h3>Lane Party</h3>
-      </div>
-
-      <div class="card">
-        <img src="images/lane3.jpg">
-        <h3>Evenimente private</h3>
+    <div id="admin-edit-view" style="display: none;">
+      <button id="admin-back-to-list-btn" class="btn-back">&larr; Înapoi la listă</button>
+      
+      <div class="card" style="width:100%; margin-top: 1rem;">
+        <h3>Editează Utilizator</h3>
+        <form id="admin-edit-form">
+          <label for="admin-edit-email">Email</label>
+          <input type="email" id="admin-edit-email" readonly>
+          
+          <label for="admin-edit-points">Puncte</label>
+          <input type="number" id="admin-edit-points">
+          
+          <label for="admin-edit-vouchers">Vouchere (JSON)</label>
+          <textarea id="admin-edit-vouchers" rows="5"></textarea>
+          
+          <label for="admin-edit-bookings">Rezervări (JSON)</label>
+          <textarea id="admin-edit-bookings" rows="5"></textarea>
+          
+          <button type="submit" class="btn-primary-full">Salvează Modificările</button>
+        </form>
       </div>
     </div>
+
   </main>
 
   <aside>
-    <h3>Program</h3>
-    <p>Luni-Vineri: 16–24</p>
-    <p>Sâmbătă-Duminică: 12–24</p>
+    <h3>Info Admin</h3>
+    <p>Aici poți edita datele utilizatorilor. Modificările sunt permanente (în `localStorage`).</p>
   </aside>
 
   <footer>
@@ -88,7 +96,5 @@
 
 <a id="top-btn" href="#top">⬆️</a>
 <script src="js/script.js"></script>
-<script src="js/loyalty.js"></script>
-
-</body>
+<script src="js/loyalty.js"></script> </body>
 </html>

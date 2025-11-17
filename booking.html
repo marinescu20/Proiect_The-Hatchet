@@ -1,42 +1,96 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Hatchet - Rezervări</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Rezervări - The Hatchet</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body id="top">
-<div class="container">
-<header><h1>The Hatchet</h1></header>
-<nav>
-  <a href="index.html">Acasă</a>
-  <a href="about.html">Despre</a>
-  <a href="prices.html">Prețuri</a>
-  <a href="booking.html" class="active">Rezervări</a>
-  <a href="gallery.html">Galerie</a>
-  <a href="contact.html">Contact</a>
-</nav>
-<main>
-  <h2>Rezervări Lane-uri</h2>
-  <div class="calendar">
-    <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div class="booked">6</div><div>7</div>
-    <div>8</div><div>9</div><div class="booked">10</div><div>11</div><div>12</div><div>13</div><div>14</div>
-  </div>
-  <form>
-    <input type="text" placeholder="Nume complet" required>
-    <input type="email" placeholder="Email" required>
-    <input type="date" required>
-    <button>Rezervă</button>
-  </form>
-</main>
-<aside>
-  <h3>Program</h3>
-  <p>Luni - Vineri: 16:00 - 24:00</p>
-  <p>Sâmbătă - Duminică: 12:00 - 24:00</p>
-</aside>
-<footer>&copy; 2025 The Hatchet | All Rights Reserved</footer>
+
+<div class="grid-container">
+
+  <header>
+    <h1 class="logo">THE HATCHET</h1>
+    
+    <div id="user-widget-container">
+      <a href="loyalty.html" id="user-widget-logged-out" class="user-widget-btn-login">
+        Login / Cont
+      </a>
+      <div id="user-widget-logged-in" style="display: none;">
+        <button id="user-widget-btn">
+          <span id="widget-user-email">email@test.com</span>
+          <strong id="widget-user-points">0 Pcte</strong>
+        </button>
+        <div id="user-widget-dropdown" style="display: none;">
+          <div class="dropdown-header">
+            <p>Bun venit!</p>
+            <span id="dropdown-user-email">email@test.com</span>
+          </div>
+          <a href="loyalty.html" id="widget-view-dashboard-btn">Panou Loialitate</a>
+          <a href="loyalty.html#my-rewards" id="widget-view-rewards-btn">Recompensele Mele</a>
+          <a href="loyalty.html#my-bookings" id="widget-view-bookings-btn">Rezervările Mele</a> 
+          <button id="widget-logout-btn">Deconectare</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <button id="nav-toggle">☰</button>
+    <ul>
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="about.html">Despre</a></li>
+      <li><a href="gallery.html">Galerie</a></li>
+      <li><a href="prices.html">Prețuri</a></li>
+      <li><a href="booking.html" class="active">Rezervări</a></li>
+      <li><a href="loyalty.html">Loialitate</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Rezervări</h2>
+
+    <div id="booking-login-prompt" class="card" style="display: none; max-width: 500px; margin: auto; text-align: center;">
+      <h3>Cont necesar</h3>
+      <p style="margin: 1rem 0;">
+        Pentru a face o rezervare, te rugăm să te autentifici sau să-ți creezi un cont.
+      </p>
+      <a href="loyalty.html" class="btn-primary-full" style="width: auto; padding: 0.8rem 1.2rem; text-decoration: none;">
+        Mergi la pagina de Cont
+      </a>
+    </div>
+
+    <form id="booking-form">
+      <input type="text" id="booking-name" placeholder="Nume complet" required>
+      <input type="email" id="booking-email-field" placeholder="Email" required>
+      <input type="date" id="booking-date" required>
+      <select id="booking-duration" required>
+        <option value="">Alege durata</option>
+        <option value="1 oră">1 oră</option>
+        <option value="2 ore">2 ore</option>
+        <option value="3 ore">3 ore</option>
+      </select>
+      <button type="submit">Trimite Rezervarea</button>
+    </form>
+  </main>
+
+  <aside>
+    <h3>Program</h3>
+    <p>Luni-Vineri: 16–24</p>
+    <p>Sâmbătă-Duminică: 12–24</p>
+  </aside>
+
+  <footer>
+    © 2025 The Hatchet
+  </footer>
+
 </div>
-<a href="#top" id="top-btn">⬆️ Mergi sus</a>
+
+<a id="top-btn" href="#top">⬆️</a>
+<script src="js/script.js"></script>
+<script src="js/loyalty.js"></script>
+
 </body>
 </html>

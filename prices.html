@@ -1,88 +1,121 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Hatchet - Prețuri</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Prețuri - The Hatchet</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body id="top">
 
-<div class="container">
-<header>
-  <h1>The Hatchet</h1>
-</header>
+<div class="grid-container">
 
-<nav>
-  <a href="index.html">Acasă</a>
-  <a href="about.html">Despre</a>
-  <a href="prices.html" class="active">Prețuri</a>
-  <a href="booking.html">Rezervări</a>
-  <a href="gallery.html">Galerie</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <header>
+    <h1 class="logo">THE HATCHET</h1>
+    
+    <div id="user-widget-container">
+      <a href="loyalty.html" id="user-widget-logged-out" class="user-widget-btn-login">
+        Login / Cont
+      </a>
+      <div id="user-widget-logged-in" style="display: none;">
+        <button id="user-widget-btn">
+          <span id="widget-user-email">email@test.com</span>
+          <strong id="widget-user-points">0 Pcte</strong>
+        </button>
+        <div id="user-widget-dropdown" style="display: none;">
+          <div class="dropdown-header">
+            <p>Bun venit!</p>
+            <span id="dropdown-user-email">email@test.com</span>
+          </div>
+          <a href="loyalty.html" id="widget-view-dashboard-btn">Panou Loialitate</a>
+          <a href="loyalty.html#my-rewards" id="widget-view-rewards-btn">Recompensele Mele</a>
+          <a href="loyalty.html#my-bookings" id="widget-view-bookings-btn">Rezervările Mele</a> 
+          <button id="widget-logout-btn">Deconectare</button>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<main>
-  <h2>Meniu - Food & Drinks</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Băuturi</h3>
-      <div class="menu-item"><span class="item-name">Cocktail „Neon Blade”</span><span class="item-price">35 RON</span></div>
-      <div class="menu-item"><span class="item-name">Cocktail „Cyber Smash”</span><span class="item-price">38 RON</span></div>
-      <div class="menu-item"><span class="item-name">Berea artizanală (0.5L)</span><span class="item-price">18 RON</span></div>
-      <div class="menu-item"><span class="item-name">Soda / Apă</span><span class="item-price">8 RON</span></div>
-    </div>
-    <div class="card">
-      <h3>Mâncare</h3>
-      <div class="menu-item"><span class="item-name">Platou aperitive (2 pers.)</span><span class="item-price">55 RON</span></div>
-      <div class="menu-item"><span class="item-name">Aripioare BBQ (8 buc)</span><span class="item-price">36 RON</span></div>
-      <div class="menu-item"><span class="item-name">Burger „Hatchet”</span><span class="item-price">32 RON</span></div>
-      <div class="menu-item"><span class="item-name">Tacos (3 buc)</span><span class="item-price">30 RON</span></div>
-      <div class="menu-item"><span class="item-name">Salată „Neon”</span><span class="item-price">24 RON</span></div>
-      <div class="menu-item"><span class="item-name">Brownie cu înghețată</span><span class="item-price">18 RON</span></div>
-    </div>
-  </div>
+  <nav>
+    <button id="nav-toggle">☰</button>
+    <ul>
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="about.html">Despre</a></li>
+      <li><a href="gallery.html">Galerie</a></li>
+      <li><a href="prices.html" class="active">Prețuri</a></li>
+      <li><a href="booking.html">Rezervări</a></li>
+      <li><a href="loyalty.html">Loialitate</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-  <h2>Închiriere lane-uri</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>1 oră</h3>
-      <p>100 RON</p>
-      <p>Grup maxim 5 persoane</p>
-    </div>
-    <div class="card">
-      <h3>2 ore</h3>
-      <p>180 RON</p>
-      <p>Grup maxim 5 persoane</p>
-    </div>
-    <div class="card">
-      <h3>3 ore</h3>
-      <p>250 RON</p>
-      <p>Grup maxim 5 persoane</p>
-    </div>
-    <div class="card">
-      <h3>All Day / Holiday</h3>
-      <p>400 RON</p>
-      <p>Grup maxim 5 persoane</p>
-    </div>
-    <div class="card">
-      <h3>Persoane extra</h3>
-      <p>+10% din costul închirierii</p>
-    </div>
-  </div>
-</main>
+  <main>
+    <h2>Prețuri</h2>
 
-<aside>
-  <h3>Program</h3>
-  <p>Luni - Vineri: 16:00 - 24:00</p>
-  <p>Sâmbătă - Duminică: 12:00 - 24:00</p>
-</aside>
+    <h3>Închiriere Lane-uri</h3>
 
-<footer>
-  &copy; 2025 The Hatchet | All Rights Reserved
-</footer>
+    <div class="cards">
+      <div class="card">
+        <h3>1 oră</h3>
+        <p>100 RON</p>
+      </div>
+
+      <div class="card">
+        <h3>2 ore</h3>
+        <p>180 RON</p>
+      </div>
+
+      <div class="card">
+        <h3>3 ore</h3>
+        <p>250 RON</p>
+      </div>
+
+      <div class="card">
+        <h3>All Day</h3>
+        <p>400 RON</p>
+      </div>
+
+      <div class="card">
+        <h3>Persoane Extra</h3>
+        <p>+10% din preț</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:40px;">Meniu - Food & Drinks</h3>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Cocktail „Neon Blade”</h3>
+        <p>35 RON</p>
+      </div>
+
+      <div class="card">
+        <h3>Berea artizanală</h3>
+        <p>18 RON</p>
+      </div>
+
+      <div class="card">
+        <h3>Burger „Hatchet”</h3>
+        <p>32 RON</p>
+      </div>
+    </div>
+  </main>
+
+  <aside>
+    <h3>Program</h3>
+    <p>Luni-Vineri: 16–24</p>
+    <p>Sâmbătă-Duminică: 12–24</p>
+  </aside>
+
+  <footer>
+    © 2025 The Hatchet
+  </footer>
+
 </div>
 
-<a href="#top" id="top-btn">⬆️ Mergi sus</a>
+<a id="top-btn" href="#top">⬆️</a>
+<script src="js/script.js"></script>
+<script src="js/loyalty.js"></script>
+
 </body>
 </html>

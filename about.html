@@ -1,69 +1,118 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Hatchet - Despre</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Despre noi - The Hatchet</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body id="top">
 
-<div class="container">
-<header>
-  <h1>The Hatchet</h1>
-</header>
+<div class="grid-container">
 
-<nav>
-  <a href="index.html">Acasă</a>
-  <a href="about.html" class="active">Despre</a>
-  <a href="prices.html">Prețuri</a>
-  <a href="booking.html">Rezervări</a>
-  <a href="gallery.html">Galerie</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <header>
+    <h1 class="logo">THE HATCHET</h1>
+    
+    <div id="user-widget-container">
+      <a href="loyalty.html" id="user-widget-logged-out" class="user-widget-btn-login">
+        Login / Cont
+      </a>
+      <div id="user-widget-logged-in" style="display: none;">
+        <button id="user-widget-btn">
+          <span id="widget-user-email">email@test.com</span>
+          <strong id="widget-user-points">0 Pcte</strong>
+        </button>
+        <div id="user-widget-dropdown" style="display: none;">
+          <div class="dropdown-header">
+            <p>Bun venit!</p>
+            <span id="dropdown-user-email">email@test.com</span>
+          </div>
+          <a href="loyalty.html" id="widget-view-dashboard-btn">Panou Loialitate</a>
+          <a href="loyalty.html#my-rewards" id="widget-view-rewards-btn">Recompensele Mele</a>
+          <a href="loyalty.html#my-bookings" id="widget-view-bookings-btn">Rezervările Mele</a> 
+          <button id="widget-logout-btn">Deconectare</button>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<main>
-  <h2>Despre The Hatchet</h2>
-  <p>Aruncarea toporului, cunoscută și ca „Throwing Axes”, are rădăcini adânci în Europa medievală, fiind o metodă de antrenament și distracție în același timp. Astăzi, aceasta a devenit o experiență socială, plină de adrenalină și competiție. La <strong>The Hatchet</strong>, am adus această tradiție într-un mediu sigur, neon și futurist, pentru toți pasionații de aventură și distracție.</p>
+  <nav>
+    <button id="nav-toggle">☰</button>
+    <ul>
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="about.html" class="active">Despre</a></li>
+      <li><a href="gallery.html">Galerie</a></li>
+      <li><a href="prices.html">Prețuri</a></li>
+      <li><a href="booking.html">Rezervări</a></li>
+      <li><a href="loyalty.html">Loialitate</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
-  <!-- SECȚIUNE ANTRONOR -->
-  <div class="cards">
-    <div class="card">
+  <main>
+    <h2>Despre noi</h2>
+
+    <p style="margin-bottom: 2rem;">
+      The Hatchet a fost fondat din pasiunea pentru adrenalină, divertisment și competiție prietenoasă.
+      Echipa noastră își propune să aducă în România o experiență modernă inspirată din cultura americană
+      de „axe throwing”, într-un spațiu neon futurist în care oricine se simte binevenit.
+    </p>
+
+    <h3 style="margin-bottom: 1rem;">Fondatorii</h3>
+
+    <div class="cards">
+      <div class="card">
+        <img src="images/ceo1.jpg" alt="CEO Tony">
+        <h3>CEO: Tony</h3>
+        <p>
+          Tony a descoperit aruncarea toporului în timpul unei călătorii în America.
+          Fascinat de atmosfera vibrantă, a decis să aducă această experiență în România,
+          transformând-o într-un concept modern și accesibil tuturor.
+        </p>
+      </div>
+
+      <div class="card">
+        <img src="images/ceo2.jpg" alt="CEO George">
+        <h3>CEO: George</h3>
+        <p>
+          George este pasionat de sporturile urbane și de comunități active.
+          Misiunea lui este să creeze un spațiu unde oamenii pot socializa,
+          învăța tehnici noi și se pot bucura de un mediu sigur și energic.
+        </p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 3rem; margin-bottom: 1rem;">Antrenorul nostru</h3>
+
+    <div class="card" style="max-width: 650px; margin: auto;">
       <h3>Antrenorul George</h3>
-      <p>George este campion la aruncarea toporului și instructor certificat. El vă va învăța tehnica corectă și siguranța necesară pentru fiecare aruncare.</p>
-      <video controls>
+      <p>
+        George este instructor certificat și campion la aruncarea toporului.  
+        Cu o experiență de peste 5 ani, el te va învăța tehnici profesionale,
+        siguranță în manipularea toporului și trucuri spectaculoase!
+      </p>
+
+      <video controls style="width:100%; border-radius: 10px; margin-top: 1rem;">
         <source src="images/george_demo.mp4" type="video/mp4">
         Browserul tău nu suportă video.
       </video>
     </div>
 
-    <!-- CEO 1 -->
-    <div class="card">
-      <img src="images/ceo1.jpg" alt="CEO 1">
-      <h3>CEO: Tony</h3>
-      <p>Dupa ce am vizitat America și am descoperit cultura throwing axes, ne-am dat seama că putem aduce o experiență similară și în România. Am creat The Hatchet pentru a oferi distracție, siguranță și adrenalina în același timp.</p>
-    </div>
+  </main>
 
-    <!-- CEO 2 -->
-    <div class="card">
-      <img src="images/ceo2.jpg" alt="CEO 2">
-      <h3>CEO: George</h3>
-      <p>Ne dorim să creăm un spațiu unde oamenii să socializeze, să învețe și să se bucure de experiența unică a aruncării toporului, într-un ambient futurist și sigur.</p>
-    </div>
-  </div>
-</main>
+  <aside>
+    <h3>Program</h3>
+    <p>Luni-Vineri: 16–24</p>
+    <p>Sâmbătă-Duminică: 12–24</p>
+  </aside>
 
-<aside>
-  <h3>Program</h3>
-  <p>Luni - Vineri: 16:00 - 24:00</p>
-  <p>Sâmbătă - Duminică: 12:00 - 24:00</p>
-</aside>
+  <footer>© 2025 The Hatchet</footer>
 
-<footer>
-  &copy; 2025 The Hatchet | All Rights Reserved
-</footer>
 </div>
 
-<a href="#top" id="top-btn">⬆️ Mergi sus</a>
+<a id="top-btn" href="#top">⬆️</a>
+<script src="js/script.js"></script>
+<script src="js/loyalty.js"></script>
+
 </body>
 </html>

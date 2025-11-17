@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <title>Loialitate - The Hatchet</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="top">
+
+<div class="grid-container">
+
+  <header>
+    <h1 class="logo">THE HATCHET</h1>
+    
+    <div id="user-widget-container">
+      <a href="loyalty.html" id="user-widget-logged-out" class="user-widget-btn-login">
+        Login / Cont
+      </a>
+      <div id="user-widget-logged-in" style="display: none;">
+        <button id="user-widget-btn">
+          <span id="widget-user-email">email@test.com</span>
+          <strong id="widget-user-points">0 Pcte</strong>
+        </button>
+        <div id="user-widget-dropdown" style="display: none;">
+          <div class="dropdown-header">
+            <p>Bun venit!</p>
+            <span id="dropdown-user-email">email@test.com</span>
+          </div>
+          <a href="loyalty.html" id="widget-view-dashboard-btn">Panou Loialitate</a>
+          <a href="loyalty.html#my-rewards" id="widget-view-rewards-btn">Recompensele Mele</a>
+          <a href="loyalty.html#my-bookings" id="widget-view-bookings-btn">Rezervările Mele</a> 
+          <button id="widget-logout-btn">Deconectare</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <button id="nav-toggle">☰</button>
+    <ul>
+      <li><a href="index.html">Acasă</a></li>
+      <li><a href="about.html">Despre</a></li>
+      <li><a href="gallery.html">Galerie</a></li>
+      <li><a href="prices.html">Prețuri</a></li>
+      <li><a href="booking.html">Rezervări</a></li>
+      <li><a href="loyalty.html" class="active">Loialitate</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h2>Program de Loialitate</h2>
+
+    <div id="auth-container">
+      <form class="card" id="login-form" style="margin:auto; max-width:400px;">
+        <h3>Autentificare</h3>
+        <input type="email" id="login-email" placeholder="Email" required>
+        <input type="password" id="login-pass" placeholder="Parolă" required>
+        <button type="submit" id="login-btn">Intră în cont</button>
+        <p class="form-toggle">Nu ai cont? <a href="#" id="show-register">Înregistrează-te</a></p>
+      </form>
+      <form class="card" id="register-form" style="display: none; margin:auto; max-width:400px;">
+        <h3>Cont nou</h3>
+        <input type="email" id="register-email" placeholder="Email" required>
+        <input type="password" id="register-pass" placeholder="Parolă" required>
+        <input type="password" id="register-pass-confirm" placeholder="Confirmă parola" required>
+        <button type="submit" id="register-btn">Creează cont</button>
+        <p class="form-toggle">Ai deja cont? <a href="#" id="show-login">Autentifică-te</a></p>
+      </form>
+    </div>
+
+    <div class="card" id="verification-pending-card" style="display: none; margin:auto; max-width:500px; text-align: center;">
+      <h3>Verifică-ți adresa de email</h3>
+      <p style="opacity: 0.8; margin: 1rem 0;">
+        Un email de verificare a fost trimis (simulat) la <strong id="verification-email-display">email@exemplu.com</strong>.
+      </p>
+      <p>Click pe butonul de mai jos pentru a-ți activa contul.</p>
+      <button id="verify-email-btn" style="margin-top: 1.5rem;">Activează Contul</button>
+    </div>
+
+    <div class="card" id="loyalty-dashboard" style="display: none; margin:auto; max-width:700px; text-align: left;">
+    
+        <h3 id="welcome-message">Bun venit!</h3>
+        
+        <div class="loyalty-points">
+          <p>Punctele tale de loialitate:</p>
+          <span id="points-display">0</span>
+        </div>
+
+        <button id="view-my-codes-btn" class="btn-primary-full">
+          Vezi Recompensele Mele
+        </button>
+
+        <button id="view-my-bookings-btn" class="btn-primary-full" style="margin-top: 1rem;">
+          Vezi Rezervările Mele
+        </button>
+
+        <h4 class="rewards-title" style="margin-top: 2rem;">Revendică Recompense Noi</h4>
+        <div class="rewards-list">
+          <div class="reward-item">
+            <p>O bere artizanală din partea casei</p>
+            <button class="claim-btn" data-cost="50" data-name="O bere artizanală">Revendică (50 Pcte)</button>
+          </div>
+          <div class="reward-item">
+            <p>Tricou "The Hatchet" Neon</p>
+            <button class="claim-btn" data-cost="150" data-name="Tricou 'The Hatchet'">Revendică (150 Pcte)</button>
+          </div>
+          <div class="reward-item">
+            <p>1 Oră de acces gratuit</p>
+            <button class="claim-btn" data-cost="250" data-name="1 Oră acces gratuit">Revendică (250 Pcte)</button>
+          </div>
+        </div>
+
+        <div class="loyalty-actions" style="margin-top: 2rem;">
+          <button id="add-points-btn" class="btn-secondary">+5 Pcte (simulare vizită)</button>
+          <button id="logout-btn" class="btn-secondary">Ieși din cont</button>
+        </div>
+    </div>
+
+    <div id="my-codes-view" style="display: none; max-width: 700px; margin: auto;">
+      <button id="back-to-dashboard-btn" class="btn-back">
+        &larr; Înapoi la Panou
+      </button>
+      <div class="card" style="width: 100%; margin-top: 1rem;">
+        <h3>Recompensele Mele</h3>
+        <div id="my-codes-list-container">
+          </div>
+      </div>
+    </div>
+
+    <div id="my-bookings-view" style="display: none; max-width: 700px; margin: auto;">
+      <button id="back-to-dashboard-btn-2" class="btn-back">
+        &larr; Înapoi la Panou
+      </button>
+      <div class="card" style="width: 100%; margin-top: 1rem;">
+        <h3>Rezervările Mele</h3>
+        <div id="my-bookings-list-container" style="text-align: left;">
+          </div>
+      </div>
+    </div>
+  </main>
+
+  <aside>
+    <h3>Program</h3>
+    <p>Luni-Vineri: 16–24</p>
+    <p>Sâmbătă-Duminică: 12–24</p>
+  </aside>
+
+  <footer>
+    © 2025 The Hatchet
+  </footer>
+
+</div>
+
+<a id="top-btn" href="#top">⬆️</a>
+<script src="js/script.js"></script>
+<script src="js/loyalty.js"></script>
+
+</body>
+</html>

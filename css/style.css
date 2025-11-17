@@ -1,0 +1,953 @@
+/* ==============================
+   RESET + GLOBAL
+============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #090912;
+  color: #e8eef0;
+  line-height: 1.6;
+}
+
+/* ==============================
+   GRID LAYOUT (CERINȚĂ PROFESOR)
+============================== */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main"
+    "aside"
+    "footer";
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+}
+
+/* DESKTOP GRID */
+@media (min-width: 900px) {
+  .grid-container {
+    grid-template-areas:
+      "header header"
+      "nav    nav"
+      "main   aside"
+      "footer footer";
+    grid-template-columns: 1fr 300px;
+  }
+}
+
+header { grid-area: header; }
+nav    { grid-area: nav; }
+main   { grid-area: main; padding: 1.5rem; }
+aside {
+  background: rgba(20,20,30,0.85);
+  border-left: 1px solid rgba(255,0,120,0.3);
+  border-radius: 0 12px 12px 0;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+}
+
+aside h3 {
+  color: #00e6ff;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 6px rgba(0,230,255,0.5);
+}
+
+footer {
+  background: linear-gradient(90deg, #0b0b14, #17172a);
+  border-top: 1px solid rgba(255,0,120,0.4);
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+
+/* ==============================
+   HEADER
+============================== */
+header {
+  background: linear-gradient(120deg, #0a0a11, #151525);
+  padding: 2rem 2rem;
+  border-bottom: 2px solid #ff0077;
+  box-shadow: 0 7px 20px rgba(0,0,0,0.4);
+}
+
+header .logo {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #00e6ff;
+  text-shadow: 0 0 12px rgba(0,230,255,0.6);
+}
+
+/* ==============================
+   NAVBAR RESPONSIVE
+============================== */
+nav {
+  background: #0d0d14;
+  border-bottom: 2px solid #ff0077;
+  padding: 1rem;
+  position: relative;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+}
+
+nav ul li a {
+  color: #e8eef0;
+  text-decoration: none;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background: linear-gradient(90deg, #ff0077, #00e6ff);
+  color: #000;
+}
+
+#nav-toggle {
+  display: none;
+  font-size: 2rem;
+  background: transparent;
+  border: none;
+  color: #00e6ff;
+  cursor: pointer;
+}
+
+/* ---- MOBILE NAV ---- */
+@media (max-width: 900px) {
+  #nav-toggle {
+    display: block;
+  }
+
+ nav {
+  background: rgba(13,13,20,0.55);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,0,120,0.4);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+nav ul li a {
+  color: #e8eef0;
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  transition: 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background: linear-gradient(90deg, #ff0077, #00e6ff);
+  box-shadow: 0 0 12px rgba(255,0,120,0.6);
+  color: #000;
+}
+
+}
+
+/* ==============================
+   HERO SECTION
+============================== */
+.hero {
+  position: relative;
+  background: url("../images/hero.jpg") center/cover no-repeat;
+  height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(3px);
+}
+
+.hero h1 {
+  position: relative;
+  font-size: 3.4rem;
+  color: #ffffff;
+  text-shadow: 0 0 20px #00e6ff;
+  z-index: 2;
+}
+/* ==============================
+   CARDS — FLEXBOX (CERINȚĂ)
+============================== */
+.card {
+  background: linear-gradient(145deg, #11111a, #0a0a12);
+  padding: 1.5rem;
+  border-radius: 16px;
+  width: 300px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 0 12px rgba(255,0,120,0.15);
+  transition: 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 0 25px rgba(255,0,120,0.45),
+    0 0 40px rgba(0,230,255,0.25);
+}
+
+.card h3 {
+  margin-top: 1rem;
+  color: #00e6ff;
+  text-shadow: 0 0 8px rgba(0,230,255,0.5);
+}
+
+.card p {
+  margin-top: 0.5rem;
+  opacity: 0.9;
+}
+
+
+/* ==============================
+   RESPONSIVE IMAGES
+============================== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+
+/* ==============================
+   BUTTON — MERGI SUS
+============================== */
+#top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: linear-gradient(90deg, #ff0077, #00e6ff);
+  color: #000;
+  padding: 0.7rem 1rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  display: none;
+  z-index: 999;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 450px;
+  margin: auto;
+}
+
+form input,
+form select,
+form textarea {
+  padding: 0.9rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,0,120,0.3);
+  background: rgba(15,15,25,0.8);
+  color: #e8eef0;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+  background: rgba(20,20,30,0.9);
+  box-shadow: 0 0 12px rgba(0,230,255,0.35);
+  border-color: #00e6ff;
+}
+
+form button {
+  padding: 0.9rem;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, #ff0077, #00e6ff);
+  color: #000;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+form button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 12px rgba(255,0,120,0.45);
+}
+
+/* AICI ERA ACOLADA ÎN PLUS } , CARE A FOST ȘTEARSĂ */
+
+
+/* ==================================
+   UPGRADE ULTRA-PREMIUM
+================================== */
+
+/* 1a. Animație Puls Neon (Albastru) */
+@keyframes neon-pulse-blue {
+  0% { text-shadow: 0 0 12px rgba(0, 230, 255, 0.6); }
+  70% { text-shadow: 0 0 16px rgba(0, 230, 255, 0.9); }
+  100% { text-shadow: 0 0 12px rgba(0, 230, 255, 0.6); }
+}
+
+/* 1a. Animație Puls Neon (Roz - pentru carduri) */
+@keyframes neon-pulse-pink {
+  0% { box-shadow: 0 0 12px rgba(255, 0, 120, 0.15); }
+  70% { box-shadow: 0 0 20px rgba(255, 0, 120, 0.35); }
+  100% { box-shadow: 0 0 12px rgba(255, 0, 120, 0.15); }
+}
+
+/* Aplicarea animației pe logo și titluri */
+header .logo,
+.card h3 {
+  animation: neon-pulse-blue 3s infinite linear;
+}
+
+/* Aplicarea animației de puls pe card */
+.card {
+  /* ... păstrează 'transition' ... */
+  transition: 0.35s ease;
+  animation: neon-pulse-pink 4s infinite alternate;
+}
+
+/* Oprim animația la hover pentru a lăsa loc efectului principal */
+.card:hover {
+  animation-play-state: paused;
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 0 25px rgba(255, 0, 120, 0.45),
+    0 0 40px rgba(0, 230, 255, 0.25);
+}
+
+
+/* 1b. Animație la încărcarea paginii */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  padding: 1.5rem; /* Ai deja asta, doar confirm */
+  animation: fadeInSlideUp 0.6s ease-out;
+}
+
+
+/* 2a. Alinierea cardurilor (Flexbox) */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Le centrează frumos */
+  gap: 1.5rem; /* Spațiu uniform între carduri */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+/* 2b. Efect "Frosted Glass" pentru Aside */
+aside {
+  background: rgba(20, 20, 30, 0.6); /* Am redus opacitatea */
+  backdrop-filter: blur(10px); /* Efectul de sticlă */
+  border-left: 1px solid rgba(255, 0, 120, 0.3);
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  /* 'border-radius' este deja setat corect */
+}
+
+/* 2c. Video Responsiv */
+video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+
+/* 3a. Micro-interacțiune Buton Activ */
+form button:active {
+  transform: translateY(0); /* Resetează efectul de hover */
+  box-shadow: 0 0 8px rgba(255, 0, 120, 0.3);
+  filter: brightness(0.9); /* Îl face puțin mai întunecat la click */
+}
+
+
+/* ==============================
+   PROGRAM DE LOIALITATE
+============================== */
+
+.loyalty-points {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  border: 1px solid #00e6ff;
+  text-align: center;
+}
+
+.loyalty-points p {
+  margin: 0;
+  opacity: 0.9;
+  font-size: 1.1rem;
+}
+
+.loyalty-points span {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #00e6ff;
+  text-shadow: 0 0 15px rgba(0, 230, 255, 0.7);
+}
+
+.loyalty-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap; /* Pentru ecrane mici */
+}
+
+/* Buton secundar (pentru logout) */
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #ff0077;
+  color: #ff0077;
+  padding: 0.8rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 0, 120, 0.15);
+  box-shadow: 0 0 10px rgba(255, 0, 120, 0.45);
+  transform: translateY(-2px);
+}
+
+
+/* ==============================
+   LOYALTY - FORMS & REWARDS
+============================== */
+
+/* Stil pentru link-ul de comutare între Login/Register */
+.form-toggle {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+.form-toggle a {
+  color: #00e6ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.form-toggle a:hover {
+  text-decoration: underline;
+}
+
+/* Titlu secțiune recompense */
+.rewards-title {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 0, 120, 0.4);
+  color: #00e6ff;
+  text-shadow: 0 0 8px rgba(0,230,255,0.5);
+}
+
+/* Lista de recompense */
+.rewards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reward-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap; /* Pentru ecrane mici */
+  gap: 1rem; /* Pentru ecrane mici */
+}
+
+.reward-item p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 500;
+  flex-grow: 1; /* Ocupă spațiul disponibil */
+}
+
+/* Butonul de revendicare */
+button.claim-btn {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90deg, #ff0077, #00e6ff);
+  color: #000;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+  white-space: nowrap; /* Previne ruperea textului */
+}
+
+button.claim-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255, 0, 120, 0.45);
+}
+
+/* Modificăm butonul de adăugare puncte să fie secundar */
+#add-points-btn.btn-secondary {
+  background: transparent;
+  border: 2px solid #00e6ff;
+  color: #00e6ff;
+}
+#add-points-btn.btn-secondary:hover {
+  background: rgba(0, 230, 255, 0.15);
+  box-shadow: 0 0 10px rgba(0, 230, 255, 0.45);
+}
+
+
+/* ==============================
+   LOYALTY - VERIFY & CODES
+============================== */
+
+/* Cardul de verificare */
+#verification-pending-card strong {
+  color: #00e6ff;
+  font-weight: 600;
+}
+
+#verification-pending-card button {
+  /* Refolosim stilul de buton principal */
+  padding: 0.9rem;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, #ff0077, #00e6ff);
+  color: #000;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+#verification-pending-card button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 12px rgba(255,0,120,0.45);
+}
+
+/* Lista de coduri revendicate */
+.claimed-codes-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.claimed-codes-list li {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.claimed-codes-list li strong {
+  color: #00e6ff; /* Codul este neon */
+  margin-right: 0.5rem;
+}
+
+.claimed-codes-list li span {
+  opacity: 0.6;
+  font-size: 0.85rem;
+  float: right; /* Aliniază data la dreapta */
+}
+
+/* Responsive pentru lista de coduri pe mobil */
+@media (max-width: 600px) {
+  .claimed-codes-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .claimed-codes-list li span {
+    float: none; /* Data vine sub cod */
+    opacity: 0.7;
+  }
+}
+
+
+/* ==============================
+   LOYALTY - "SUB-PAGE" & VOUCHERS
+============================== */
+
+/* Butonul de navigare spre coduri */
+.btn-primary-full {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(90deg, #ff0077, #00e6ff);
+  color: #000;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+.btn-primary-full:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 12px rgba(255,0,120,0.45);
+}
+
+/* Butonul "Înapoi" */
+.btn-back {
+  background: transparent;
+  border: none;
+  color: #00e6ff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  margin-bottom: 0.5rem;
+  transition: 0.2s ease;
+}
+.btn-back:hover {
+  text-shadow: 0 0 8px rgba(0,230,255,0.7);
+  transform: translateX(-5px);
+}
+
+/* Containerul listei de vouchere */
+#my-codes-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Stilul unui voucher individual */
+.voucher-item {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 5px solid #00e6ff; /* Albastru = Disponibil */
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.voucher-item h4 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.voucher-item p {
+  margin: 0.25rem 0;
+}
+
+.voucher-date {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.status-available {
+  color: #00e6ff;
+  font-weight: 700;
+}
+.status-used {
+  color: #ff0077; /* Roz = Folosit */
+  font-weight: 700;
+}
+
+.voucher-code {
+  font-weight: 700;
+  color: #00e6ff;
+}
+
+/* Butonul "Folosește acum" */
+.use-code-btn {
+  /* Stil similar cu cel de revendicare */
+  padding: 0.6rem 1rem;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90deg, #ff0077, #00e6ff);
+  color: #000;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+.use-code-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255, 0, 120, 0.45);
+}
+
+/* Stil pentru voucherul FOLOSIT */
+.voucher-used {
+  border-left-color: #ff0077; /* Bara laterală devine roz */
+  opacity: 0.7; /* Îl facem să pară "consumat" */
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.voucher-used h4 {
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+/* ==============================
+   HEADER USER WIDGET
+============================== */
+
+/* Alinierea header-ului */
+header {
+  display: flex;
+  justify-content: space-between; /* Aliniază logo-ul la stânga și widget-ul la dreapta */
+  align-items: center;
+}
+
+#user-widget-container {
+  position: relative; /* Necesar pentru dropdown */
+  font-size: 0.9rem;
+}
+
+/* Butonul "Login / Cont" (când ești delogat) */
+.user-widget-btn-login {
+  display: block;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  background: linear-gradient(90deg, #ff0077, #00e6ff);
+  color: #000;
+  transition: 0.25s ease;
+}
+.user-widget-btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(255, 0, 120, 0.45);
+}
+
+/* Butonul widget-ului (când ești logat) */
+#user-widget-btn {
+  background: rgba(20, 20, 30, 0.7);
+  border: 1px solid rgba(255, 0, 120, 0.3);
+  color: #e8eef0;
+  padding: 0.6rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: 0.25s ease;
+}
+#user-widget-btn:hover {
+  border-color: #ff0077;
+  background: rgba(30, 30, 45, 0.9);
+}
+
+#user-widget-btn span {
+  opacity: 0.8;
+  max-width: 150px; /* Previne emailurile lungi să strice designul */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#user-widget-btn strong {
+  color: #00e6ff;
+  text-shadow: 0 0 8px rgba(0, 230, 255, 0.5);
+}
+
+/* Dropdown-ul */
+#user-widget-dropdown {
+  position: absolute;
+  top: 110%; /* Puțin sub buton */
+  right: 0;
+  width: 280px;
+  background: rgba(15, 15, 25, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 0, 120, 0.5);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  overflow: hidden; /* Pentru a păstra colțurile rotunjite */
+}
+
+.dropdown-header {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 0, 120, 0.3);
+}
+.dropdown-header p {
+  margin: 0;
+  opacity: 0.7;
+}
+.dropdown-header span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #00e6ff;
+}
+
+#user-widget-dropdown a,
+#user-widget-dropdown button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.9rem 1rem;
+  color: #e8eef0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif; /* Asigură fontul corect */
+}
+
+#user-widget-dropdown a:hover {
+  background: rgba(255, 0, 120, 0.15);
+}
+
+#widget-logout-btn {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ff0077;
+  font-weight: 600;
+}
+#widget-logout-btn:hover {
+  background: rgba(255, 0, 120, 0.3);
+}
+/* ==============================
+   LOYALTY - "MY BOOKINGS" VIEW
+============================== */
+
+#my-bookings-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.booking-item {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 5px solid #00e6ff; /* Albastru = Urmează */
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.booking-item h4 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.booking-item p {
+  margin: 0.25rem 0;
+}
+
+.status-upcoming {
+  color: #00e6ff;
+  font-weight: 700;
+}
+.status-completed {
+  color: #ff0077; /* Roz = Terminat */
+  font-weight: 700;
+}
+
+/* Stil pentru rezervarea terminată (opțional, pentru viitor) */
+.booking-item-completed {
+  border-left-color: #ff0077;
+  opacity: 0.7;
+}
+.booking-item-completed h4 {
+  color: #aaa;
+  text-decoration: line-through;
+}
+
+/* ==============================
+   ADMIN PANEL STYLES
+============================== */
+
+.admin-user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.user-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.user-list-item-info {
+  flex-grow: 1;
+}
+.user-list-item-info h4 {
+  margin: 0;
+  color: #00e6ff;
+}
+.user-list-item-info p {
+  margin: 0;
+  opacity: 0.7;
+}
+
+.user-list-item .btn-secondary {
+  /* Refolosim stilul butonului secundar */
+  border-color: #00e6ff;
+  color: #00e6ff;
+}
+
+/* Formularul de editare admin */
+#admin-edit-form label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: #00e6ff;
+  text-align: left;
+}
+#admin-edit-form input,
+#admin-edit-form textarea {
+  width: 100%;
+}
+
+#admin-edit-form input[readonly] {
+  background: rgba(0,0,0,0.3);
+  opacity: 0.7;
+  cursor: not-allowed;
+  border-color: rgba(255,255,255,0.1);
+}
